@@ -1,24 +1,24 @@
 class Solution {
     public String solution(int[] numLog) {
-        StringBuilder sb = new StringBuilder();
+        String answer = "";
         for(int i=0; i<numLog.length-1; i++){
             switch(numLog[i+1] - numLog[i]){
                 case 1:
-                    sb.append('w');
+                    answer += 'w';
                     break;
                 case -1:
-                    sb.append('s');
+                    answer += 's';
                     break;
                 case 10:
-                    sb.append('d');
+                    answer += 'd';;
                     break;
                 case -10:
-                    sb.append('a');
+                    answer += 'a';
                     break;
                 default:
                     break;
             }
         }
-        return sb.toString();
+        return answer;
     }
 }
