@@ -1,6 +1,3 @@
-from collections import defaultdict
-from math import ceil
-
 n = int(input())
 for _ in range(n):
     a, b = input().split()
