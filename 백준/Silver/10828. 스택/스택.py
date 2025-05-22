@@ -8,7 +8,7 @@ for i in range(1, N+1):
     order = orders[i].strip().split()
 
     if order[0] == 'push':
-        stack.append(order[1])
+        stack.append(int(order[1]))
     elif order[0] == 'pop':
         if stack:
             print(stack.pop())
