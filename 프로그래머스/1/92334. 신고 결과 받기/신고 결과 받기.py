@@ -1,12 +1,19 @@
+from collections import defaultdict
+
 def solution(id_list, report, k):
-    answer = [0] * len(id_list)    
-    reports = {x : 0 for x in id_list}
-
-    for r in set(report):
-        reports[r.split()[1]] += 1
-
-    for r in set(report):
-        if reports[r.split()[1]] >= k:
-            answer[id_list.index(r.split()[0])] += 1
-
+    id_index = {user: i for i, user in enumerate(id_list)}
+    answer = [0] * len(id_list)
+    
+    report = set(report)
+    reported_by = defaultdict(set)
+    
+    for r in report:
+        goodid, badid = r.split()
+        reported_by[badid].add(goodid)
+        
+    for badid, reporters in reported_by.items():
+        if len(reporters) >= k:
+            for reporter in reporters:
+                answer[id_index[reporter]] +=1
+            
     return answer
